@@ -21,6 +21,9 @@ if page == "p-T":
     col1, col2 = st.columns(2)
 
     with col1:
+        st.write(""" p = """ + str('{:.6}'.format(p)) + """ МПа""")
+        st.write(""" T = """ + str('{:.6}'.format(T)) + """ °C""")
+        st.write("""  """)
         f = lambda:st.write(""" h = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).h)) + """ кДж/кг""")
         chek(f)
         f = lambda: st.write(""" s = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).s)) + """ кДж/(кг*°C)""")
