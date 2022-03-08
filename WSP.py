@@ -1,5 +1,12 @@
 import streamlit as st
 from iapws import IAPWS97
+from iapws import IAPWS95
+
+
+def chek(funk):
+    try:
+        funk()
+    except: "Ошибка / Нет значения"
 
 
 
@@ -14,24 +21,34 @@ if page == "p-T":
     col1, col2 = st.columns(2)
 
     with col1:
-        st.write(""" p = """ + str('{:.6}'.format(p)) + """ МПа""")
-        st.write(""" T = """ + str('{:.6}'.format(T)) + """ °C""")
+        f = lambda:st.write(""" h = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).h)) + """ кДж/кг""")
+        chek(f)
+        f = lambda: st.write(""" s = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).s)) + """ кДж/(кг*°C)""")
+        chek(f)
         st.write("""  """)
-        st.write(""" h = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).h)) + """ кДж/кг""")
-        st.write(""" s = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).s)) + """ кДж/(кг*°C)""")
+        f = lambda:st.write(""" v = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).v)) + """ м³/кг""")
+        chek(f)
+        f = lambda:st.write(""" ρ = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).rho)) + """ кг/м³""")
+        chek(f)
+        f = lambda:st.write(""" u = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).u)) + """ кДж/кг""")
+        chek(f)
+        f = lambda:st.write(""" cp = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).cp)) + """ кДж/(кг*°C)""")
+        chek(f)
+        f = lambda:st.write(""" cv = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).cv)) + """ кДж/(кг*°C)""")
+        chek(f)
+        f = lambda:st.write(""" λ = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).k)) + """ Вт/(м*°C)""")
+        chek(f)
+        f = lambda:st.write(""" μ = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).mu)) + """ Па*с""")
+        chek(f)
+        f = lambda:st.write(""" ν = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).nu)) + """ м²/с""")
+        chek(f)
+        f = lambda:st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).Prandt)) + """""")
+        chek(f)
         st.write("""  """)
-        st.write(""" v = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).v)) + """ м³/кг""")
-        st.write(""" ρ = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).rho)) + """ кг/м³""")
-        st.write(""" u = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).u)) + """ кДж/кг""")
-        st.write(""" cp = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).cp)) + """ кДж/(кг*°C)""")
-        st.write(""" cv = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).cv)) + """ кДж/(кг*°C)""")
-        st.write(""" λ = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).k)) + """ Вт/(м*°C)""")
-        st.write(""" μ = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).mu)) + """ Па*с""")
-        st.write(""" ν = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).nu)) + """ м²/с""")
-        st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).Prandt)) + """""")
-        st.write("""  """)
-        st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).w)) + """ м²/с""")
-        #st.write(""" k = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).gamma)) + """""")
+        f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).w)) + """ м²/с""")
+        chek(f)
+        f = lambda:st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p, T=T + 273.15).gamma)) + """""")
+        chek(f)
 
     with col2:
         st.write(""" Давление """)
@@ -51,7 +68,7 @@ if page == "p-T":
         st.write(""" Число Прандтля""")
         st.write("""  """)
         st.write(""" Скорость звука""")
-        #st.write(""" Коэф. изоэнтропы """)
+        st.write(""" Коэф. изоэнтропы """)
 
 
 
