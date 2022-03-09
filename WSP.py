@@ -428,3 +428,6 @@ if page == "T-x":
             st.write(""" Скорость звука""")
             st.write(""" Коэф. изоэнтропы """)
             st.write(""" Уд. теплота парообразования """)
+
+with st.expander("Github"):
+    st.write("https://github.com/tederix/WSP")
