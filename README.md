@@ -3,5 +3,5 @@
 
 Доступ к web: https://share.streamlit.io/tederix/wsp/main/WSP.py 
 
-Также: iapws.tk
-       iapws.ml
+Также: www.iapws.tk
+       www.iapws.ml
