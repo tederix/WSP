@@ -52,6 +52,19 @@ with st.sidebar:
     )
 
     st.write("#")
+
+
+    st.write("##Раздел в разработке")
+    P = st.radio(
+        "Выберите размерность давления:", index = 3
+        ('кПа', 'бар', 'атм', 'МПа'))
+    T = st.radio(
+        "Выберите размерность давления:", index = 1
+        ('K', '°C'))
+    st.write("##Раздел в разработке")
+
+
+    st.write("#")
     st.write("Страница проекта на Github")
     st.write("https://github.com/tederix/WSP")
 
