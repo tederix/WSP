@@ -186,7 +186,7 @@ if page == "Одна":
 
 
 
-            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, h=h).T) - 273.15 + kT)) + " " + chT)
+            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, h=h).T) - 273.15 - kT)) + " " + chT)
             chek(f)
             f = lambda:st.write(""" s = """ + str('{:.6}'.format(IAPWS97(P=p/k, h=h).s)) + """ кДж/(кг*°C)""")
             chek(f)
@@ -239,7 +239,7 @@ if page == "Одна":
             st.write(""" s = """ + str('{:.6}'.format(s)) + """ кДж/(кг*°C)""")
             st.write("""  """)
 
-            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, s=s).T) - 273.15 + kT)) + " " + chT)
+            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, s=s).T) - 273.15 - kT)) + " " + chT)
             chek(f)
             f = lambda:st.write(""" h = """ + str('{:.6}'.format(IAPWS97(P=p/k, s=s).h)) + """ кДж/кг""")
             chek(f)
@@ -295,7 +295,7 @@ if page == "Одна":
 
             f = lambda: st.write(""" p = """ + str('{:.4}'.format((IAPWS97(h=h, s=s).P) * k)) + " " + ch)
             chek(f)
-            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(h=h, s=s).T) - 273.15 + kT)) + " " + chT)
+            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(h=h, s=s).T) - 273.15 - kT)) + " " + chT)
             chek(f)
             f = lambda:st.write(""" x = """ + str('{:.4}'.format((IAPWS97(h=h, s=s).x)*100)) + """ %""")
             chek(f)
@@ -347,7 +347,7 @@ if page == "Одна":
             st.write(""" x = """ + str('{:.6}'.format(x)) + """ %""")
             st.write("""  """)
 
-            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, x=x/100).T) - 273.15 + kT)) + " " + chT)
+            f = lambda:st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, x=x/100).T) - 273.15 - kT)) + " " + chT)
             chek(f)
             f = lambda:st.write(""" h = """ + str('{:.6}'.format(IAPWS97(P=p/k, x=x/100).h)) + """ кДж/кг""")
             chek(f)
