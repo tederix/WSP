@@ -115,7 +115,8 @@ with st.sidebar:
             st_lottie(lottie_cat2, height=250, key='cat2')
         if (page == "Три"):
             st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
-    else: ()
+    else:
+        st.write("")
 
 
     st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
