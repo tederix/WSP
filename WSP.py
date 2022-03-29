@@ -84,7 +84,7 @@ with st.sidebar:
     st.write("## Раздел в разработке")
 
 
-    st.write("#")
+
     if(page == "Одна"):
         st_lottie(lottie_cat1, height=500, key='cat1')
     if (page == "Две"):
@@ -92,7 +92,7 @@ with st.sidebar:
     if (page == "Три"):
         st_lottie(lottie_cat3, height=500, key='cat3')
 
-    st.write("#")
+
     st.write("Страница проекта на Github")
     st.write("https://github.com/tederix/WSP")
 
