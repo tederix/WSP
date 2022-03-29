@@ -123,7 +123,7 @@ if page == "Одна":
         with col1:
 
             st.subheader('Свойства')
-            st.write(""" p = """ + str('{:.6}'.format(p)) + ch)
+            st.write(""" p = """ + str('{:.6}'.format(p)) + " " + ch)
             st.write(""" T = """ + str('{:.6}'.format(T)) + """ °C""")
             st.write("""  """)
 
@@ -165,7 +165,6 @@ if page == "Одна":
                 st.write("""  """)
                 st.write(""" Удельная энтальпия """)
                 st.write(""" Удельная энтропия """)
-                st.write("""  """)
                 text_1()
 
 
