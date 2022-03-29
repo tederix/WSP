@@ -102,14 +102,18 @@ with st.sidebar:
             chT = str("°C")
             kT = 0
 
+    st.write("#")
+    lottie = st.checkbox('Вкл анимации', value=True)
+    if lottie:
+        lt = 1
 
 
 
-    if(page == "Одна"):
+    if(page == "Одна" & lt ==1):
         st_lottie(lottie_cat1, height=250, key='cat1')
-    if (page == "Две"):
+    if (page == "Две" & lt ==1):
         st_lottie(lottie_cat2, height=250, key='cat2')
-    if (page == "Три"):
+    if (page == "Три" & lt ==1):
         st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
 
