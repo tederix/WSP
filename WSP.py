@@ -1,12 +1,17 @@
 import streamlit as st
 from iapws import IAPWS97
 from iapws import IAPWS95
+import json
+import requests
+from streamlit_lottie import st_lottie
 import numpy as np
 
 def chek(funk):
     try:
         funk()
     except: "Нет значения"
+
+
 
 
 def text_1():
@@ -37,6 +42,16 @@ def text_2():
     st.write("""  """)
     st.write("""Скорость звука""")
     st.write("""Коэф. изоэнтропы""")
+
+def load_lottieurl(url):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+
+lottie_ps = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_pz3drqq8.json")
 
 st.set_page_config(
      page_title="IAPWS",
@@ -973,15 +988,17 @@ if page == "Две":
             chek(f)
 
     with col3:
-        st.write("""#""")
-        st.write("""#""")
-        st.write("""#""")
-        st.write("""#""")
-        st.write("""  """)
-        st.write("""  """)
-        st.write("""  """)
-        st.write("""  """)
-        st.write("""  """)
+        #st.write("""#""")
+        #st.write("""#""")
+        #st.write("""#""")
+        #st.write("""#""")
+        #st.write("""  """)
+        #st.write("""  """)
+        #st.write("""  """)
+        #st.write("""  """)
+        #st.write("""  """)
+
+        st_lottie(lottie_ps, height=150, key='ps')
 
 
 
