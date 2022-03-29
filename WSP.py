@@ -93,8 +93,8 @@ with st.sidebar:
         st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
 
-    st.write("Страница проекта на Github")
-    st.write("https://github.com/tederix/WSP")
+    st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
+    #st.write("https://github.com/tederix/WSP")
 
 if page == "Одна":
 
