@@ -998,7 +998,7 @@ if page == "Две":
         #st.write("""  """)
         #st.write("""  """)
 
-        st_lottie(lottie_ps, height=150, key='ps')
+        st_lottie(lottie_ps, height=200, key='ps')
 
 
 
