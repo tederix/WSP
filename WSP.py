@@ -109,11 +109,11 @@ with st.sidebar:
 
 
 
-    if(page == "Одна" & lt == 1):
+    if(page == "Одна", lt == 1):
         st_lottie(lottie_cat1, height=250, key='cat1')
-    if (page == "Две" & lt == 1):
+    if (page == "Две", lt == 1):
         st_lottie(lottie_cat2, height=250, key='cat2')
-    if (page == "Три" & lt == 1):
+    if (page == "Три", lt == 1):
         st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
 
