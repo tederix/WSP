@@ -108,13 +108,13 @@ with st.sidebar:
         lt = 1
 
 
-
-    if(page == "Одна", lt == 1):
-        st_lottie(lottie_cat1, height=250, key='cat1')
-    if (page == "Две", lt == 1):
-        st_lottie(lottie_cat2, height=250, key='cat2')
-    if (page == "Три", lt == 1):
-        st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
+    if (lt == 1):
+        if(page == "Одна"):
+            st_lottie(lottie_cat1, height=250, key='cat1')
+        if (page == "Две"):
+            st_lottie(lottie_cat2, height=250, key='cat2')
+        if (page == "Три"):
+            st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
 
     st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
