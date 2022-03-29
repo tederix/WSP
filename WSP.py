@@ -52,6 +52,9 @@ def load_lottieurl(url):
 
 
 lottie_ps = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_pz3drqq8.json")
+lottie_cat1 = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_yriifcob.json")
+lottie_cat2 = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_ldqqbtdk.json")
+lottie_cat3 = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_zrn901s1.json")
 
 st.set_page_config(
      page_title="IAPWS",
@@ -80,6 +83,14 @@ with st.sidebar:
         ('K', '°C'), index = 1)
     st.write("## Раздел в разработке")
 
+
+    st.write("#")
+    if(page == "Одна"):
+        st_lottie(lottie_cat1, height=500, key='cat1')
+    if (page == "Две"):
+        st_lottie(lottie_cat2, height=500, key='cat2')
+    if (page == "Три"):
+        st_lottie(lottie_cat3, height=500, key='cat3')
 
     st.write("#")
     st.write("Страница проекта на Github")
