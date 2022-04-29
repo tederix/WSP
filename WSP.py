@@ -57,7 +57,7 @@ def hdres():
     colmn1, colmn2 = st.columns(2)
 
     with colmn1:
-        h1 = st.number_input('h1, кДж/кг')
+        h1 = st.number_input('h1, кДж/кг', step=0)
 
     with colmn2:
         h2 = st.number_input('h2, кДж/кг')
