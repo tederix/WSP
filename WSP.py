@@ -48,7 +48,6 @@ def load_lottieurl(url):
     if r.status_code != 200:
         return None
     return r.json()
-@st.cache(suppress_st_warning=True)
 def hdres():
     imagehs = Image.open('1.png')
     imagehd = Image.open('2.png')
