@@ -56,7 +56,7 @@ def hdres():
     h1 = st.number_input('h1, кДж/кг')
     h2 = st.number_input('h2, кДж/кг')
     eta_oi = st.number_input('ηoi')
-    st.write("h2д = " + str('{:.4}'.format(h1-(h1-h2)*eta_oi)) + """ кДж/кг""")
+    st.write("h2д = " + str('{:.6}'.format(h1-(h1-h2)*eta_oi)) + """ кДж/кг""")
 
 
 
