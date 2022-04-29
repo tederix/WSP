@@ -1,9 +1,10 @@
 import streamlit as st
 from iapws import IAPWS97
 from iapws import IAPWS95
-import json
 import requests
 from streamlit_lottie import st_lottie
+from PIL import Image
+import json
 import numpy as np
 
 def chek(funk):
@@ -103,8 +104,16 @@ with st.sidebar:
             kT = 0
 
     st.write("#")
+    hd = st.checkbox('Поиск действ. точки', value=False)
+    if hd:
+        imagehs = Image.open('1.png')
+        st.image(imagehs)
+
+
+
+
     lt = 0
-    lottie = st.checkbox('Вкл анимации', value=True)
+    lottie = st.checkbox('Вкл анимации', value=False)
     if lottie:
         lt = 1
 
