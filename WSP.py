@@ -48,7 +48,7 @@ def load_lottieurl(url):
     if r.status_code != 200:
         return None
     return r.json()
-def hd():
+def hdres():
     imagehs = Image.open('1.png')
     imagehd = Image.open('2.png')
     st.image(imagehs)
@@ -114,7 +114,7 @@ with st.sidebar:
     st.write("#")
     hd = st.checkbox('Поиск действ. точки', value=False)
     if hd:
-        hd()
+        hdres()
 
 
 
