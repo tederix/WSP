@@ -43,12 +43,20 @@ def text_2():
     st.write("""  """)
     st.write("""Скорость звука""")
     st.write("""Коэф. изоэнтропы""")
-
 def load_lottieurl(url):
     r = requests.get(url)
     if r.status_code != 200:
         return None
     return r.json()
+def hd():
+    imagehs = Image.open('1.png')
+    imagehd = Image.open('2.png')
+    st.image(imagehs)
+    st.image(imagehd)
+    h1 = st.number_input('h1, кДж/кг')
+    h2 = st.number_input('h2, кДж/кг')
+    eta_oi = st.number_input('ηoi')
+    st.write("h2д = " + str('{:.4}'.format(h1-(h1-h2)*eta_oi)) + """ кДж/кг""")
 
 
 
@@ -106,10 +114,7 @@ with st.sidebar:
     st.write("#")
     hd = st.checkbox('Поиск действ. точки', value=False)
     if hd:
-        imagehs = Image.open('1.png')
-        imagehd = Image.open('2.png')
-        st.image(imagehs)
-        st.image(imagehd)
+        hd()
 
 
 
