@@ -107,7 +107,9 @@ with st.sidebar:
     hd = st.checkbox('Поиск действ. точки', value=False)
     if hd:
         imagehs = Image.open('1.png')
+        imagehd = Image.open('2.png')
         st.image(imagehs)
+        st.image(imagehd)
 
 
 
