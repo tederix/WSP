@@ -53,8 +53,16 @@ def hdres():
     imagehd = Image.open('2.png')
     st.image(imagehs)
     st.image(imagehd)
-    h1 = st.number_input('h1, кДж/кг')
-    h2 = st.number_input('h2, кДж/кг')
+
+    colmn1, colmn2 = st.columns(2)
+
+    with colmn1:
+        h1 = st.number_input('h1, кДж/кг')
+
+    with colmn2:
+        h2 = st.number_input('h2, кДж/кг')
+    #h1 = st.number_input('h1, кДж/кг')
+    #h2 = st.number_input('h2, кДж/кг')
     eta_oi = st.number_input('ηoi')
     st.write("h2д = " + str('{:.6}'.format(h1-(h1-h2)*eta_oi)) + """ кДж/кг""")
 
