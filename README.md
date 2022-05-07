@@ -24,5 +24,5 @@
 
 ## Основано на:
 -----------------
-Библиотеке [IAPWS 97(95) для python] (https://github.com/jjgomera/iapws)
-[Steamlit.io] (https://streamlit.io)
+Библиотеке [IAPWS 97(95) для python](https://github.com/jjgomera/iapws)
+[Steamlit.io](https://streamlit.io)
