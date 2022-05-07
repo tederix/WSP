@@ -814,7 +814,7 @@ if(page == 'Test Coolprop'):
             chek(f)
             st.write("""  """)
             f = lambda: st.write(
-                """ v = """ + str('{:.6}'.format(CP.PropsSI('volumemass_excess','P', p,'T', T, 'carbondioxide'))) + """ м³/кг""")
+                """ v = """ + str('{:.6}'.format(1/CP.PropsSI('D','P', p,'T', T, 'carbondioxide'))) + """ м³/кг""")
             chek(f)
             f = lambda: st.write(
                 """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ кг/м³""")
@@ -823,10 +823,10 @@ if(page == 'Test Coolprop'):
                 """ u = """ + str('{:.6}'.format((CP.PropsSI('U','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/кг""")
             chek(f)
             f = lambda: st.write(
-                """ cp = """ + str('{:.6}'.format((CP.PropsSI('cpmass','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
+                """ cp = """ + str('{:.6}'.format((CP.PropsSI('C','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ cv = """ + str('{:.6}'.format((CP.PropsSI('cvmass','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
+                """ cv = """ + str('{:.6}'.format((CP.PropsSI('O','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             f = lambda: st.write(
                 """ λ = """ + str('{:.6}'.format((CP.PropsSI('conductivity','P', p,'T', T, 'carbondioxide')))) + """ Вт/(м*°C)""")
@@ -841,7 +841,7 @@ if(page == 'Test Coolprop'):
                 """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl','P', p,'T', T, 'carbondioxide')))) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_sound','P', p,'T', T, 'carbondioxide')))) + """ м/с""")
+            f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_of_sound','P', p,'T', T, 'carbondioxide')))) + """ м/с""")
             chek(f)
             f = lambda: st.write(""" k = """ + str('{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient','P', p,'T', T, 'carbondioxide')))) + """""")
             chek(f)
