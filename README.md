@@ -1,9 +1,7 @@
 
-Основана на пакете IAPWS 97 (95) для python и streamlit
-
 Доступ к web: www.iapws.ml
 
-Также: www.iapws.tk
+Также зеркало: www.iapws.tk
 
 
 
@@ -23,3 +21,8 @@
  - [ ] Добавление других библиотек
     - [ ] Coolprop
     - [ ] Refprop
+
+## Основано на:
+-----------------
+Библиотеке [IAPWS 97(95) для python] (https://github.com/jjgomera/iapws)
+[Steamlit.io] (https://streamlit.io)
