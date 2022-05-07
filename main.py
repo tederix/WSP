@@ -814,36 +814,36 @@ if(page == 'Test Coolprop'):
             chek(f)
             st.write("""  """)
             f = lambda: st.write(
-                """ v = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).v)) + """ м³/кг""")
+                """ v = """ + str('{:.6}'.format(CP.PropsSI('volumemass_excess','P', p,'T', T, 'carbondioxide'))) + """ м³/кг""")
             chek(f)
             f = lambda: st.write(
-                """ ρ = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).rho)) + """ кг/м³""")
+                """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ кг/м³""")
             chek(f)
             f = lambda: st.write(
-                """ u = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).u)) + """ кДж/кг""")
+                """ u = """ + str('{:.6}'.format((CP.PropsSI('U','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/кг""")
             chek(f)
             f = lambda: st.write(
-                """ cp = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).cp)) + """ кДж/(кг*°C)""")
+                """ cp = """ + str('{:.6}'.format((CP.PropsSI('cpmass','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ cv = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).cv)) + """ кДж/(кг*°C)""")
+                """ cv = """ + str('{:.6}'.format((CP.PropsSI('cvmass','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ λ = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).k)) + """ Вт/(м*°C)""")
+                """ λ = """ + str('{:.6}'.format((CP.PropsSI('conductivity','P', p,'T', T, 'carbondioxide')))) + """ Вт/(м*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ μ = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).mu)) + """ Па*с""")
+                """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity','P', p,'T', T, 'carbondioxide'))) + """ Па*с""")
             chek(f)
             f = lambda: st.write(
-                """ ν = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).nu)) + """ м²/с""")
+                """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity','P', p,'T', T, 'carbondioxide')/CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ м²/с""")
             chek(f)
             f = lambda: st.write(
-                """ Pr = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).Prandt)) + """""")
+                """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl','P', p,'T', T, 'carbondioxide')))) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p / k, T=T + 273.15 + kT).w)) + """ м²/с""")
+            f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_sound','P', p,'T', T, 'carbondioxide')))) + """ м/с""")
             chek(f)
-            f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p / k, T=T + 273.15 + kT).gamma)) + """""")
+            f = lambda: st.write(""" k = """ + str('{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient','P', p,'T', T, 'carbondioxide')))) + """""")
             chek(f)
 
         with col2:
