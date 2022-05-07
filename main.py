@@ -790,6 +790,8 @@ if page == "Три":
 
 if(page == 'Test Coolprop'):
     page1 = st.selectbox("Выберите вещество", ["Вода", "Диоксид углерода", "Воздух", "Кислород", "Водород"])
+
+
     if(page1 == "Вода"):
         fluid = 'Water'
     if(page1 == "Диоксид углерода"):
@@ -800,6 +802,8 @@ if(page == 'Test Coolprop'):
         fluid = 'oxygen'
     if(page1 == "Водород"):
         fluid = 'hydrogen'
+
+
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
     if page == "p-T":
         p = st.number_input('Введите давление p, МПа')
@@ -843,7 +847,7 @@ if(page == 'Test Coolprop'):
                 """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity','P', p,'T', T, fluid))) + """ Па*с""")
             chek(f)
             f = lambda: st.write(
-                """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity','P', p,'T', T, fluid)/CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ м²/с""")
+                """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity','P', p,'T', T, fluid)/CP.PropsSI('D','P', p,'T', T, fluid)))) + """ м²/с""")
             chek(f)
             f = lambda: st.write(
                 """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl','P', p,'T', T, fluid)))) + """""")
