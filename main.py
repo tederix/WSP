@@ -789,11 +789,17 @@ if page == "Три":
         WSP(key=3)
 
 if(page == 'Test Coolprop'):
-    page1 = st.selectbox("Выберите вещество", ["Вода", "Диоксид углерода"])
+    page1 = st.selectbox("Выберите вещество", ["Вода", "Диоксид углерода", "Воздух", "Кислород", "Водород"])
     if(page1 == "Вода"):
         fluid = 'Water'
     if(page1 == "Диоксид углерода"):
         fluid = 'carbondioxide'
+    if(page1 == "Воздух"):
+        fluid = 'AIR'
+    if(page1 == "Кислород"):
+        fluid = 'oxygen'
+    if(page1 == "Водород"):
+        fluid = 'hydrogen'
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
     if page == "p-T":
         p = st.number_input('Введите давление p, МПа')
