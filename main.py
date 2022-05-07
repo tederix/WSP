@@ -806,9 +806,9 @@ if(page == 'Test Coolprop'):
             st.write(""" T = """ + str('{:.6}'.format(T-273.15)) + " С" )
             st.write("""  """)
 
-            f = lambda: st.write(
+            st.write(
                 """ h = """ + str('{:.6}'.format(CP('H','P', p,'T', T, 'carbondioxide'))) + """ Дж/кг""")
-            chek(f)
+
             f = lambda: st.write(
                 """ s = """ + str('{:.6}'.format(CP('S','P', p,'T', T, 'carbondioxide'))) + """ Дж/(кг*°C)""")
             chek(f)
