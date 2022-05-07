@@ -96,7 +96,7 @@ def WSP(key):
         f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).Prandt)) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).w)) + """ м²/с""")
+        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, T=T + 273.15).w)) + """ м/с""")
         chek(f)
         f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p, T=T + 273.15).gamma)) + """""")
         chek(f)
@@ -137,7 +137,7 @@ def WSP(key):
         f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p, h=h).Prandt)) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, h=h).w)) + """ м²/с""")
+        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, h=h).w)) + """ м/с""")
         chek(f)
         f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p, h=h).gamma)) + """""")
         chek(f)
@@ -178,7 +178,7 @@ def WSP(key):
         f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p, s=s).Prandt)) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, s=s).w)) + """ м²/с""")
+        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, s=s).w)) + """ м/с""")
         chek(f)
         f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p, s=s).gamma)) + """""")
         chek(f)
@@ -219,7 +219,7 @@ def WSP(key):
         f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(h=h, s=s).Prandt)) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(h=h, s=s).w)) + """ м²/с""")
+        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(h=h, s=s).w)) + """ м/с""")
         chek(f)
         f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(h=h, s=s).gamma)) + """""")
         chek(f)
@@ -262,7 +262,7 @@ def WSP(key):
         f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS95(P=p, x=x / 100).Prandt)) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, x=x / 100).w)) + """ м²/с""")
+        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p, x=x / 100).w)) + """ м/с""")
         chek(f)
         f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p, x=x / 100).gamma)) + """""")
         chek(f)
@@ -276,7 +276,6 @@ def WSP(key):
 
         f = lambda: st.write(""" r = """ + str('{:.6}'.format(IAPWS95(P=p, x=x / 100).Hvap)) + """ кДж/кг""")
         chek(f)
-
     if page == "T-x":
         T = st.number_input('Введите температуру T, °C', key=key)
         x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0, key=key)
@@ -315,7 +314,7 @@ def WSP(key):
         f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS95(T=T + 273.15, x=x / 100).Prandt)) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(T=T + 273.15, x=x / 100).w)) + """ м²/с""")
+        f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(T=T + 273.15, x=x / 100).w)) + """ м/с""")
         chek(f)
         f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(T=T + 273.15, x=x / 100).gamma)) + """""")
         chek(f)
@@ -446,7 +445,7 @@ if page == "Одна":
             f = lambda:st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p/k, T=T + 273.15 + kT).Prandt)) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, T=T + 273.15 + kT).w)) + """ м²/с""")
+            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, T=T + 273.15 + kT).w)) + """ м/с""")
             chek(f)
             f = lambda:st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p/k, T=T + 273.15 + kT).gamma)) + """""")
             chek(f)
@@ -501,7 +500,7 @@ if page == "Одна":
             f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p/k, h=h).Prandt)) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, h=h).w)) + """ м²/с""")
+            f = lambda: st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, h=h).w)) + """ м/с""")
             chek(f)
             f = lambda: st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p/k, h=h).gamma)) + """""")
             chek(f)
@@ -554,7 +553,7 @@ if page == "Одна":
             f = lambda:st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(P=p/k, s=s).Prandt)) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, s=s).w)) + """ м²/с""")
+            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, s=s).w)) + """ м/с""")
             chek(f)
             f = lambda:st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p/k, s=s).gamma)) + """""")
             chek(f)
@@ -608,7 +607,7 @@ if page == "Одна":
             f = lambda:st.write(""" Pr = """ + str('{:.6}'.format(IAPWS97(h=h, s=s).Prandt)) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(h=h, s=s).w)) + """ м²/с""")
+            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(h=h, s=s).w)) + """ м/с""")
             chek(f)
             f = lambda:st.write(""" k = """ + str('{:.6}'.format(IAPWS95(h=h, s=s).gamma)) + """""")
             chek(f)
@@ -662,7 +661,7 @@ if page == "Одна":
             f = lambda:st.write(""" Pr = """ + str('{:.6}'.format(IAPWS95(P=p/k, x=x/100).Prandt)) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, x=x/100).w)) + """ м²/с""")
+            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(P=p/k, x=x/100).w)) + """ м/с""")
             chek(f)
             f = lambda:st.write(""" k = """ + str('{:.6}'.format(IAPWS95(P=p/k, x=x/100).gamma)) + """""")
             chek(f)
@@ -725,7 +724,7 @@ if page == "Одна":
             f = lambda:st.write(""" Pr = """ + str('{:.6}'.format(IAPWS95(T=T + 273.15 + kT, x=x/100).Prandt)) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(T=T + 273.15 + kT, x=x/100).w)) + """ м²/с""")
+            f = lambda:st.write(""" w = """ + str('{:.6}'.format(IAPWS97(T=T + 273.15 + kT, x=x/100).w)) + """ м/с""")
             chek(f)
             f = lambda:st.write(""" k = """ + str('{:.6}'.format(IAPWS95(T=T + 273.15 + kT, x=x/100).gamma)) + """""")
             chek(f)
@@ -789,10 +788,13 @@ if page == "Три":
     with col3:
         WSP(key=3)
 
-
 if(page == 'Test Coolprop'):
+    page1 = st.selectbox("Выберите вещество", ["Вода", "Диоксид углерода"])
+    if(page1 == "Вода"):
+        fluid = 'Water'
+    if(page1 == "Диоксид углерода"):
+        fluid = 'carbondioxide'
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
-
     if page == "p-T":
         p = st.number_input('Введите давление p, МПа')
         T = st.number_input('Введите температуру T, С')
@@ -807,43 +809,43 @@ if(page == 'Test Coolprop'):
             st.write("""  """)
 
             f = lambda: st.write(
-                """ h = """ + str('{:.6}'.format((CP.PropsSI('H','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/кг""")
+                """ h = """ + str('{:.6}'.format((CP.PropsSI('H','P', p,'T', T, fluid))/1000)) + """ кДж/кг""")
             chek(f)
             f = lambda: st.write(
-                """ s = """ + str('{:.6}'.format((CP.PropsSI('S','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
+                """ s = """ + str('{:.6}'.format((CP.PropsSI('S','P', p,'T', T, fluid))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             st.write("""  """)
             f = lambda: st.write(
-                """ v = """ + str('{:.6}'.format(1/CP.PropsSI('D','P', p,'T', T, 'carbondioxide'))) + """ м³/кг""")
+                """ v = """ + str('{:.6}'.format(1/CP.PropsSI('D','P', p,'T', T, fluid))) + """ м³/кг""")
             chek(f)
             f = lambda: st.write(
-                """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ кг/м³""")
+                """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D','P', p,'T', T, fluid)))) + """ кг/м³""")
             chek(f)
             f = lambda: st.write(
-                """ u = """ + str('{:.6}'.format((CP.PropsSI('U','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/кг""")
+                """ u = """ + str('{:.6}'.format((CP.PropsSI('U','P', p,'T', T, fluid))/1000)) + """ кДж/кг""")
             chek(f)
             f = lambda: st.write(
-                """ cp = """ + str('{:.6}'.format((CP.PropsSI('C','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
+                """ cp = """ + str('{:.6}'.format((CP.PropsSI('C','P', p,'T', T, fluid))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ cv = """ + str('{:.6}'.format((CP.PropsSI('O','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
+                """ cv = """ + str('{:.6}'.format((CP.PropsSI('O','P', p,'T', T, fluid))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ λ = """ + str('{:.6}'.format((CP.PropsSI('conductivity','P', p,'T', T, 'carbondioxide')))) + """ Вт/(м*°C)""")
+                """ λ = """ + str('{:.6}'.format((CP.PropsSI('conductivity','P', p,'T', T, fluid)))) + """ Вт/(м*°C)""")
             chek(f)
             f = lambda: st.write(
-                """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity','P', p,'T', T, 'carbondioxide'))) + """ Па*с""")
+                """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity','P', p,'T', T, fluid))) + """ Па*с""")
             chek(f)
             f = lambda: st.write(
-                """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity','P', p,'T', T, 'carbondioxide')/CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ м²/с""")
+                """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity','P', p,'T', T, fluid)/CP.PropsSI('D','P', p,'T', T, 'carbondioxide')))) + """ м²/с""")
             chek(f)
             f = lambda: st.write(
-                """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl','P', p,'T', T, 'carbondioxide')))) + """""")
+                """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl','P', p,'T', T, fluid)))) + """""")
             chek(f)
             st.write("""  """)
-            f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_of_sound','P', p,'T', T, 'carbondioxide')))) + """ м/с""")
+            f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_of_sound','P', p,'T', T, fluid)))) + """ м/с""")
             chek(f)
-            f = lambda: st.write(""" k = """ + str('{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient','P', p,'T', T, 'carbondioxide')))) + """""")
+            f = lambda: st.write(""" k = """ + str('{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient','P', p,'T', T, fluid)))) + """""")
             chek(f)
 
         with col2:
