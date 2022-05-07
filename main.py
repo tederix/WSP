@@ -807,10 +807,10 @@ if(page == 'Test Coolprop'):
             st.write("""  """)
 
             f = lambda: st.write(
-                """ h = """ + str('{:.6}'.format((CP.PropsSI('H','P', p,'T', T, 'carbondioxide')))/1000) + """ кДж/кг""")
+                """ h = """ + str('{:.6}'.format((CP.PropsSI('H','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/кг""")
             chek(f)
             f = lambda: st.write(
-                """ s = """ + str('{:.6}'.format((CP.PropsSI('S','P', p,'T', T, 'carbondioxide')))/100) + """ кДж/(кг*°C)""")
+                """ s = """ + str('{:.6}'.format((CP.PropsSI('S','P', p,'T', T, 'carbondioxide'))/1000)) + """ кДж/(кг*°C)""")
             chek(f)
             st.write("""  """)
             f = lambda: st.write(
