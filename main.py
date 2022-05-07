@@ -794,16 +794,14 @@ if(page == 'Test Coolprop'):
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
 
     if page == "p-T":
-        p = st.number_input('Введите давление p, МПа')
-        T = st.number_input('Введите температуру T, С')
-        p=p*10**6
-        T=T+273.15
+        p = st.number_input('Введите давление p, Па')
+        T = st.number_input('Введите температуру T, K')
         col1, col2 = st.columns(2)
 
         with col1:
             st.subheader('Свойства')
-            st.write(""" p = """ + str('{:.6}'.format(p/10**6)) + " МПа" )
-            st.write(""" T = """ + str('{:.6}'.format(T-273.15)) + " С" )
+            st.write(""" p = """ + str('{:.6}'.format(p)) + " Па" )
+            st.write(""" T = """ + str('{:.6}'.format(T)) + " K" )
             st.write("""  """)
 
             st.write(
