@@ -817,7 +817,7 @@ if(page == 'Test Coolprop'):
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
     if page == "p-T":
         p = st.number_input('Введите давление p, МПа', max_value = Pmax/10**6)
-        T = st.number_input('Введите температуру T, С', max_value = Tmax + 273.15)
+        T = st.number_input('Введите температуру T, С', max_value = Tmax - 273.15)
         p=p*10**6
         T=T+273.15
         col1, col2 = st.columns(2)
