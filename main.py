@@ -794,20 +794,30 @@ if(page == 'Test Coolprop'):
 
     if(page1 == "Вода"):
         fluid = 'Water'
+        Pmax = 1000000000.0
+        Tmax = 2000.0
     if(page1 == "Диоксид углерода"):
         fluid = 'carbondioxide'
+        Pmax = 800000000.0
+        Tmax = 2000.0
     if(page1 == "Воздух"):
         fluid = 'AIR'
+        Pmax = 2000000000.0
+        Tmax = 2000.0
     if(page1 == "Кислород"):
         fluid = 'oxygen'
+        Pmax = 80000000.0
+        Tmax = 2000.0
     if(page1 == "Водород"):
         fluid = 'hydrogen'
+        Pmax = 2000000000.0
+        Tmax = 1000.0
 
 
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
     if page == "p-T":
-        p = st.number_input('Введите давление p, МПа')
-        T = st.number_input('Введите температуру T, С')
+        p = st.number_input('Введите давление p, МПа', max_value = Pmax/10**6)
+        T = st.number_input('Введите температуру T, С', max_value = Tmax + 273.15)
         p=p*10**6
         T=T+273.15
         col1, col2 = st.columns(2)
