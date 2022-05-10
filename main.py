@@ -789,7 +789,7 @@ if page == "Три":
         WSP(key=3)
 
 if(page == 'Test Coolprop'):
-    page1 = st.selectbox("Выберите вещество", ["Вода", "Диоксид углерода", "Воздух", "Кислород", "Водород"])
+    page1 = st.selectbox("Выберите вещество", ["Вода", "Диоксид углерода", "Воздух", "Кислород", "Водород", "Указать свое из библиотеки Coolprop"])
 
 
     if(page1 == "Вода"):
@@ -812,6 +812,9 @@ if(page == 'Test Coolprop'):
         fluid = 'hydrogen'
         Pmax = 2000000000.0
         Tmax = 1000.0
+    if(page1 == "Указать свое из библиотеки Coolprop"):
+        st.write("[Список веществ](http://www.coolprop.org/fluid_properties/PurePseudoPure.html#list-of-fluids)")
+        fluid = st.text_input('Название вещества:', 'carbondioxide')
 
 
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
