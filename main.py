@@ -815,6 +815,8 @@ if(page == 'Test Coolprop'):
     if(page1 == "Указать свое из библиотеки Coolprop"):
         st.write("[Список веществ](http://www.coolprop.org/fluid_properties/PurePseudoPure.html#list-of-fluids)")
         fluid = st.text_input('Название вещества:', 'carbondioxide')
+        Pmax = 20000000000.0
+        Tmax = 50000.0
 
 
     page = st.selectbox("Выберите исходные параметры", ["p-T"])
