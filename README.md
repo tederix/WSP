@@ -1,5 +1,5 @@
 
-Доступ к web: iapwsted.ml
+Доступ к web: www.iapwsted.ml
 
 Также зеркало: https://tederix-wsp-wsp-k0j1j1.streamlitapp.com
 
