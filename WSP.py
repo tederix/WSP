@@ -7,11 +7,7 @@ from PIL import Image
 from streamlit.logger import get_logger
 
 
-#перечень lottie анимаций (ссылки)
-lottie_ps = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_pz3drqq8.json")
-lottie_cat1 = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_yriifcob.json")
-lottie_cat2 = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_ldqqbtdk.json")
-lottie_cat3 = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_zrn901s1.json")
+
 
 #настройки конфигурации страницы
 st.set_page_config(page_title="IAPWS", page_icon="💨")
@@ -58,6 +54,13 @@ def load_lottieurl(url):
     if r.status_code != 200:
         return None
     return r.json()
+
+#перечень lottie анимаций (ссылки)
+lottie_ps = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_pz3drqq8.json")
+lottie_cat1 = load_lottieurl("https://assets7.lottiefiles.com/packages/lf20_yriifcob.json")
+lottie_cat2 = load_lottieurl("https://assets8.lottiefiles.com/packages/lf20_ldqqbtdk.json")
+lottie_cat3 = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_zrn901s1.json")
+
 #функция поиска действительной точки
 def hdres():
     imagehs = Image.open('1.png')
