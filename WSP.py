@@ -350,7 +350,7 @@ with st.sidebar:
         ("Одна", "Две", "Три")
     )
 
-    #st.write("#")
+    st.write("#")
 
     # работа с единицами измерения
     if(page == 'Одна'):
@@ -389,7 +389,6 @@ with st.sidebar:
     tab1, tab2 = st.tabs(["Дополнительный функционал", "Настройки"])
     with tab1:
         #включение функции поиска действительной точки
-        st.write("#")
         hd = st.checkbox('Поиск действ. точки', value=False)
         if hd:
             hdres()
