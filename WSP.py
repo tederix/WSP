@@ -350,7 +350,7 @@ with st.sidebar:
         ("Одна", "Две", "Три")
     )
 
-    st.write("#")
+    #st.write("#")
 
     # работа с единицами измерения
     if(page == 'Одна'):
@@ -384,15 +384,15 @@ with st.sidebar:
                 chT = str("°C")
                 kT = 0
 
-    tab1, tab2 = st.tabs(["Дополнительный функционал", "Настройки"])
+    st.write("#")
 
+    tab1, tab2 = st.tabs(["Дополнительный функционал", "Настройки"])
     with tab1:
         #включение функции поиска действительной точки
         st.write("#")
         hd = st.checkbox('Поиск действ. точки', value=False)
         if hd:
             hdres()
-
     with tab2:
         #включение анимаций
         lt = 0
@@ -408,7 +408,7 @@ with st.sidebar:
         if (page == "Три" and lt == 1):
             st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
-    st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
+        st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
 if page == "Одна":
 
