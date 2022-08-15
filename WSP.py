@@ -384,24 +384,28 @@ with st.sidebar:
                 chT = str("°C")
                 kT = 0
 
-    #включение функции поиска действительной точки
-    st.write("#")
-    hd = st.checkbox('Поиск действ. точки', value=False)
-    if hd:
-        hdres()
-    #включение анимаций
-    lt = 0
-    lottie = st.checkbox('Вкл анимации', value=False)
-    if lottie:
-        lt = 1
+    tab1, tab2 = st.tabs(["Дополнительный функционал", "Настройки"])
 
-    #распределение заранее подготовленных анимаций по страницам
-    if (lt == 1):
-        if(page == "Одна"):
+    with tab1:
+        #включение функции поиска действительной точки
+        st.write("#")
+        hd = st.checkbox('Поиск действ. точки', value=False)
+        if hd:
+            hdres()
+
+    with tab2:
+        #включение анимаций
+        lt = 0
+        lottie = st.checkbox('Вкл анимации', value=False)
+        if lottie:
+            lt = 1
+
+        #распределение заранее подготовленных анимаций по страницам
+        if(page == "Одна" and lt == 1):
             st_lottie(lottie_cat1, height=250, key='cat1')
-        if (page == "Две"):
+        if (page == "Две" and lt == 1):
             st_lottie(lottie_cat2, height=250, key='cat2')
-        if (page == "Три"):
+        if (page == "Три" and lt == 1):
             st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
     st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
