@@ -772,7 +772,7 @@ if page == "Две":
         #st.write("""  """)
         #st.write("""  """)
 
-        st_lottie(lottie_ps, height=200, key='ps')
+        st_lottie(lottie_ps, height=180, key='ps')
         with st.expander("Показать названия свойств", expanded=True):
             st.write("""  """)
             st.write(""" Давление """)
