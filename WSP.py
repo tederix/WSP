@@ -119,7 +119,7 @@ def WSP(key):
         p = st.number_input('Введите давление p, ' + ch, key=key)
         h = st.number_input('Введите энтальпию h, кДж/кг', key=key)
 
-        st.write(""" p = """ + str('{:.6}'.format(p)) + "" + ch)
+        st.write(""" p = """ + str('{:.6}'.format(p)) + " " + ch)
         f = lambda: st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p/k, h=h).T) - 273.15 - kT)) + " " + chT)
         chek(f)
 
@@ -406,6 +406,7 @@ with st.sidebar:
         if (page == "Три" and lt == 1):
             st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
+        st.write("Vr 1.0.0 ")
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
 if page == "Одна":
