@@ -1,7 +1,11 @@
 import streamlit as st
 import numpy as np
 import CoolProp.CoolProp as CP
-import WSP
+
+
+def Vers():
+    Vr = "v1.0.1"
+    st.write(Vr)
 
 st.set_page_config(page_title="CoolProp", page_icon="💦")
 
@@ -108,7 +112,7 @@ with st.sidebar:
     with tab1:
         st.write(Sub[page1][0])
         st.write("#")
-        WSP.Vers()
+        Vers()
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
 
