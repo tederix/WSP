@@ -8,7 +8,9 @@ from streamlit.logger import get_logger
 
 
 #Версия
-Vr = "v1.0.1"
+def Vers():
+    Vr = "v1.0.1"
+    st.write(Vr)
 
 #настройки конфигурации страницы
 st.set_page_config(page_title="IAPWS", page_icon="💨")
@@ -407,7 +409,7 @@ with st.sidebar:
         if (page == "Три" and lt == 1):
             st_lottie(lottie_cat3, height=250, key='cat3', speed=0.5)
 
-        st.write(Vr)
+        Vers()
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
 if page == "Одна":

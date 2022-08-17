@@ -108,7 +108,7 @@ with st.sidebar:
     with tab1:
         st.write(Sub[page1][0])
         st.write("#")
-        st.write(WSP.Vr)
+        WSP.Vers()
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
 
