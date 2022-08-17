@@ -63,8 +63,8 @@ lottie_cat3 = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_zrn9
 
 #функция поиска действительной точки
 def hdres():
-    imagehs = Image.open('1.png')
-    imagehd = Image.open('2.png')
+    imagehs = Image.open('image/1.png')
+    imagehd = Image.open('image/2.png')
     st.image(imagehs)
     st.image(imagehd)
     h1 = st.number_input('h1, кДж/кг')
