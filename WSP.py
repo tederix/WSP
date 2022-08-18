@@ -4,12 +4,12 @@ from iapws import IAPWS95
 import requests
 from streamlit_lottie import st_lottie
 from PIL import Image
-from streamlit.logger import get_logger
+
 
 
 #Версия
 def Vers():
-    Vr = "v1.0.1"
+    Vr = "v1.0.2"
     st.write(Vr)
 
 #настройки конфигурации страницы
@@ -37,7 +37,7 @@ def text_1():  #текст для IAPWS однотабличный
     st.write(""" Скорость звука""")
     st.write(""" Коэф. изоэнтропы """)
 #текст для IAPWS многотабличный
-def text_2(): #текст для IAPWS многотабличный
+def text_2():
     st.write("""  """)
     st.write("""Удельный объем """)
     st.write("""Плотность""")
