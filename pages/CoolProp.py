@@ -1,11 +1,8 @@
 import streamlit as st
 import numpy as np
 import CoolProp.CoolProp as CP
+from WSP import Vers
 
-
-def Vers():
-    Vr = "v1.0.1"
-    st.write(Vr)
 
 st.set_page_config(page_title="CoolProp", page_icon="💦")
 
@@ -182,3 +179,5 @@ if page == "p-T":
                 st.write(""" Удельная энтальпия """)
                 st.write(""" Удельная энтропия """)
                 text_1()
+
+
