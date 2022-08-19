@@ -1,7 +1,7 @@
 
 Доступ к web: www.iapwsted.ml
 
-Также зеркало: https://tederix-wsp-wsp-k0j1j1.streamlitapp.com
+Также зеркало: https://tederix-wsp-wsp-3z1gd9.streamlitapp.com
 
 
 
