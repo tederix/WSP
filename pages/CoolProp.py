@@ -2,10 +2,9 @@ import streamlit as st
 import CoolProp.CoolProp as CP
 from WSP import Vers
 
-
 st.set_page_config(page_title="CoolProp", page_icon="💦")
 
-#вещества
+# вещества
 
 Sub = {'1-Butene / 1-Бутен': ('1-Butene', 50000000.0, 525.0),
        'Acetone / Ацетон': ('Acetone', 700000000.0, 550.0),
@@ -129,17 +128,20 @@ Sub = {'1-Butene / 1-Бутен': ('1-Butene', 50000000.0, 525.0),
        'o-Xylene / o-Ксилол': ('o-Xylene', 70000000.0, 700.0),
        'p-Xylene / p-Ксилол': ('p-Xylene', 200000000.0, 700.0),
        'trans-2-Butene / Транс-2-бутен': ('trans-2-Butene', 50000000.0, 525.0)
-                }
+       }
 
 Subst = list(Sub.keys())
 
-#функция "переадресации" ошибок
+
+# функция "переадресации" ошибок
 def chek(funk):
     try:
         funk()
-    except: "Нет значения"
+    except:
+        "Нет значения"
 
-def text_1():  #текст для IAPWS однотабличный
+
+def text_1():  # текст для IAPWS однотабличный
     st.write("""  """)
     st.write(""" Удельный объем """)
     st.write(""" Плотность """)
@@ -153,7 +155,9 @@ def text_1():  #текст для IAPWS однотабличный
     st.write("""  """)
     st.write(""" Скорость звука""")
     st.write(""" Коэф. изоэнтропы """)
-#боковое меню
+
+
+# боковое меню
 with st.sidebar:
     page1 = st.selectbox("Выберите вещество", Subst)
     tab1, tab2 = st.tabs(["Настройки", " "])
@@ -193,36 +197,48 @@ if test == "Основная":
         chek(f)
         st.write("""  """)
         f = lambda: st.write(
-            """ v = """ + str('{:.6}'.format(1/CP.PropsSI('D','P', p,'T', T, Sub[page1][0]))) + """ м³/кг""")
+            """ v = """ + str('{:.6}'.format(1 / CP.PropsSI('D', 'P', p, 'T', T, Sub[page1][0]))) + """ м³/кг""")
         chek(f)
         f = lambda: st.write(
-            """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D','P', p,'T', T, Sub[page1][0])))) + """ кг/м³""")
+            """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D', 'P', p, 'T', T, Sub[page1][0])))) + """ кг/м³""")
         chek(f)
         f = lambda: st.write(
-            """ u = """ + str('{:.6}'.format((CP.PropsSI('U','P', p,'T', T, Sub[page1][0]))/1000)) + """ кДж/кг""")
+            """ u = """ + str('{:.6}'.format((CP.PropsSI('U', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/кг""")
         chek(f)
         f = lambda: st.write(
-            """ cp = """ + str('{:.6}'.format((CP.PropsSI('C','P', p,'T', T, Sub[page1][0]))/1000)) + """ кДж/(кг*°C)""")
+            """ cp = """ + str(
+                '{:.6}'.format((CP.PropsSI('C', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/(кг*°C)""")
         chek(f)
         f = lambda: st.write(
-            """ cv = """ + str('{:.6}'.format((CP.PropsSI('O','P', p,'T', T, Sub[page1][0]))/1000)) + """ кДж/(кг*°C)""")
+            """ cv = """ + str(
+                '{:.6}'.format((CP.PropsSI('O', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/(кг*°C)""")
         chek(f)
         f = lambda: st.write(
-            """ λ = """ + str('{:.6}'.format((CP.PropsSI('conductivity','P', p,'T', T, Sub[page1][0])))) + """ Вт/(м*°C)""")
+            """ λ = """ + str(
+                '{:.6}'.format((CP.PropsSI('conductivity', 'P', p, 'T', T, Sub[page1][0])))) + """ Вт/(м*°C)""")
         chek(f)
         f = lambda: st.write(
-            """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity','P', p,'T', T, Sub[page1][0]))) + """ Па*с""")
+            """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity', 'P', p, 'T', T, Sub[page1][0]))) + """ Па*с""")
         chek(f)
         f = lambda: st.write(
-            """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity','P', p,'T', T, Sub[page1][0])/CP.PropsSI('D','P', p,'T', T, Sub[page1][0])))) + """ м²/с""")
+            """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity', 'P', p, 'T', T, Sub[page1][0]) / CP.PropsSI('D',
+                                                                                                                  'P',
+                                                                                                                  p,
+                                                                                                                  'T',
+                                                                                                                  T,
+                                                                                                                  Sub[
+                                                                                                                      page1][
+                                                                                                                      0])))) + """ м²/с""")
         chek(f)
         f = lambda: st.write(
-            """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl','P', p,'T', T, Sub[page1][0])))) + """""")
+            """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl', 'P', p, 'T', T, Sub[page1][0])))) + """""")
         chek(f)
         st.write("""  """)
-        f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_of_sound','P', p,'T', T, Sub[page1][0])))) + """ м/с""")
+        f = lambda: st.write(""" w = """ + str(
+            '{:.6}'.format((CP.PropsSI('speed_of_sound', 'P', p, 'T', T, Sub[page1][0])))) + """ м/с""")
         chek(f)
-        f = lambda: st.write(""" k = """ + str('{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient','P', p,'T', T, Sub[page1][0])))) + """""")
+        f = lambda: st.write(""" k = """ + str(
+            '{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient', 'P', p, 'T', T, Sub[page1][0])))) + """""")
         chek(f)
 
         with col2:
