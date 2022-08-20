@@ -129,7 +129,6 @@ Sub = {'1-Butene / 1-Бутен': ('1-Butene', 50000000.0, 525.0),
        'p-Xylene / p-Ксилол': ('p-Xylene', 200000000.0, 700.0),
        'trans-2-Butene / Транс-2-бутен': ('trans-2-Butene', 50000000.0, 525.0)
        }
-
 Subst = list(Sub.keys())
 
 
@@ -141,7 +140,15 @@ def chek(funk):
         "Нет значения"
 
 
-def text_1():  # текст для IAPWS однотабличный
+# текст
+def text_1():
+    st.write("""  """)
+    st.write(""" Давление """)
+    st.write(""" Температура """)
+    st.write("""  """)
+    st.write(""" Удельная энтальпия """)
+    st.write(""" Удельная энтропия """)
+    st.write(""" Степень сухости """)
     st.write("""  """)
     st.write(""" Удельный объем """)
     st.write(""" Плотность """)
@@ -157,6 +164,159 @@ def text_1():  # текст для IAPWS однотабличный
     st.write(""" Коэф. изоэнтропы """)
 
 
+# Основная функция
+def Cool(inp_1, inp_2):
+    st.subheader('Свойства')
+    # Давление
+    if par_1 == "p - давление, МПа" or par_2 == "p - давление, МПа":
+        if par_1 == "p - давление, МПа":
+            st.write(""" p = """ + str('{:.6}'.format(inp_1 / 10 ** 6)) + " МПа")
+        if par_2 == "p - давление, МПа":
+            st.write(""" p = """ + str('{:.6}'.format(inp_2 / 10 ** 6)) + " МПа")
+    else:
+        f = lambda: st.write(""" p = """ + str('{:.6}'.format((CP.PropsSI('P', Parametr[par_1][1], inp_1,
+                                                                          Parametr[par_2][1], inp_2,
+                                                                          Sub[page1][0])) / 10 ** 6)) + " МПа")
+        chek(f)
+    # Температура
+    if par_1 == "t - температура, °C" or par_2 == "t - температура, °C":
+        if par_1 == "t - температура, °C":
+            st.write(""" t = """ + str('{:.6}'.format(inp_1 - 273.15)) + " °C")
+        if par_2 == "t - температура, °C":
+            st.write(""" t = """ + str('{:.6}'.format(inp_2 - 273.15)) + " °C")
+    else:
+        f = lambda: st.write(""" t = """ + str('{:.6}'.format((CP.PropsSI('T', Parametr[par_1][1], inp_1,
+                                                                          Parametr[par_2][1], inp_2,
+                                                                          Sub[page1][0])) - 273.15)) + " °C")
+        chek(f)
+
+    st.write("""  """)
+
+    # Энтальпия
+    if par_1 == "h - энтальпия, кДж/кг" or par_2 == "h - энтальпия, кДж/кг":
+        if par_1 == "h - энтальпия, кДж/кг":
+            st.write(""" h = """ + str('{:.6}'.format(inp_1 / 1000)) + " °C")
+        if par_2 == "h - энтальпия, кДж/кг":
+            st.write(""" h = """ + str('{:.6}'.format(inp_2 / 1000)) + " °C")
+    else:
+        f = lambda: st.write(""" h = """ + str('{:.6}'.format((CP.PropsSI('H', Parametr[par_1][1], inp_1,
+                                                                          Parametr[par_2][1], inp_2,
+                                                                          Sub[page1][0])) / 1000)) + " кДж/кг")
+        chek(f)
+
+    # Энтропия
+    if par_1 == "s - энтропия, кДж/(кг*°C)" or par_2 == "s - энтропия, кДж/(кг*°C)":
+        if par_1 == "s - энтропия, кДж/(кг*°C)":
+            st.write(""" s = """ + str('{:.6}'.format(inp_1 / 1000)) + " кДж/(кг*°C)")
+        if par_2 == "s - энтропия, кДж/(кг*°C)":
+            st.write(""" s = """ + str('{:.6}'.format(inp_2 / 1000)) + " кДж/(кг*°C)")
+    else:
+        f = lambda: st.write(""" s = """ + str('{:.6}'.format((CP.PropsSI('S', Parametr[par_1][1], inp_1,
+                                                                          Parametr[par_2][1], inp_2,
+                                                                          Sub[page1][0])) / 1000)) + " кДж/(кг*°C)")
+        chek(f)
+
+    # Степень сухости
+    if par_1 == "x - степень сухости, %" or par_2 == "x - степень сухости, %":
+        if par_1 == "x - степень сухости, %":
+            st.write(""" x = """ + str('{:.6}'.format(inp_1 * 100)) + " %")
+        if par_2 == "x - степень сухости, %":
+            st.write(""" x = """ + str('{:.6}'.format(inp_2 * 100)) + " %")
+    else:
+        try:
+            X = ((CP.PropsSI('Q', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2, Sub[page1][0])) * 100)
+        except:
+            X = 0
+
+        if X != - 100:
+            f = lambda: st.write(""" x = """ + str('{:.6}'.format((CP.PropsSI('Q', Parametr[par_1][1], inp_1,
+                                                                              Parametr[par_2][1], inp_2,
+                                                                              Sub[page1][0])) * 100)) + " %")
+            chek(f)
+        else:
+            st.write("Нет значения")
+    st.write("""  """)
+
+    # Удельный объем и плотность
+    if par_1 == "ρ - плотность, кг/м³" or par_2 == "ρ - плотность, кг/м³":
+        if par_1 == "ρ - плотность, кг/м³":
+            st.write(""" v  = """ + str('{:.6}'.format(1 / inp_1)) + " м³/кг")
+            st.write(""" ρ = """ + str('{:.6}'.format(inp_1)) + " кг/м³")
+        if par_2 == "ρ - плотность, кг/м³":
+            st.write(""" v  = """ + str('{:.6}'.format(1 / inp_2)) + " м³/кг")
+            st.write(""" ρ = """ + str('{:.6}'.format(inp_2)) + " кг/м³")
+    else:
+        f = lambda: st.write(""" v = """ + str('{:.6}'.format(
+            1 / CP.PropsSI('D', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2,
+                           Sub[page1][0]))) + """ м³/кг""")
+        chek(f)
+        f = lambda: st.write(""" ρ = """ + str('{:.6}'.format(
+            (CP.PropsSI('D', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2, Sub[page1][0])))) + " кг/м³")
+        chek(f)
+
+    # Внутренняя энергия
+    if par_1 == "u - внутренняя энергия, кДж/кг" or par_2 == "u - внутренняя энергия, кДж/кг":
+        if par_1 == "u - внутренняя энергия, кДж/кг":
+            st.write(""" u = """ + str('{:.6}'.format(inp_1 / 1000)) + " кДж/кг")
+        if par_2 == "u - внутренняя энергия, кДж/кг":
+            st.write(""" u = """ + str('{:.6}'.format(inp_2 / 1000)) + " кДж/кг")
+    else:
+        f = lambda: st.write(""" u = """ + str('{:.6}'.format((CP.PropsSI('U', Parametr[par_1][1], inp_1,
+                                                                          Parametr[par_2][1], inp_2,
+                                                                          Sub[page1][0])) / 1000)) + " кДж/кг")
+        chek(f)
+
+    f = lambda: st.write(""" cp = """ + str('{:.6}'.format((CP.PropsSI('C', Parametr[par_1][1], inp_1,
+                                                                       Parametr[par_2][1], inp_2,
+                                                                       Sub[page1][0])) / 1000)) + " кДж/(кг*°C)")
+    chek(f)
+
+    f = lambda: st.write(""" cv = """ + str('{:.6}'.format((CP.PropsSI('O', Parametr[par_1][1], inp_1,
+                                                                       Parametr[par_2][1], inp_2,
+                                                                       Sub[page1][0])) / 1000)) + " кДж/(кг*°C)")
+    chek(f)
+
+    f = lambda: st.write(""" λ = """ + str('{:.6}'.format((CP.PropsSI('conductivity', Parametr[par_1][1], inp_1,
+                                                                      Parametr[par_2][1], inp_2,
+                                                                      Sub[page1][0])))) + " Вт/(м*°C)")
+    chek(f)
+
+    f = lambda: st.write(""" μ = """ + str('{:.6}'.format(
+        (CP.PropsSI('viscosity', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2, Sub[page1][0])))) + " Па*с")
+    chek(f)
+
+    # Кин. вязкость
+    if par_1 == "ρ - плотность, кг/м³" or par_2 == "ρ - плотность, кг/м³":
+        if par_1 == "ρ - плотность, кг/м³":
+            st.write(""" ν  = """ + str('{:.6}'.format((CP.PropsSI('viscosity', Parametr[par_1][1], inp_1,
+                                                                   Parametr[par_2][1], inp_2,
+                                                                   Sub[page1][0])) / inp_1)) + " м²/с")
+        if par_2 == "ρ - плотность, кг/м³":
+            st.write(""" ν  = """ + str('{:.6}'.format((CP.PropsSI('viscosity', Parametr[par_1][1], inp_1,
+                                                                   Parametr[par_2][1], inp_2,
+                                                                   Sub[page1][0])) / inp_2)) + " м²/с")
+    else:
+        f = lambda: st.write(""" ν = """ + str('{:.6}'.format(
+            (CP.PropsSI('viscosity', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2, Sub[page1][0])) / (
+                CP.PropsSI('D', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2, Sub[page1][0])))) + " м²/с")
+        chek(f)
+
+    f = lambda: st.write(""" Pr = """ + str('{:.6}'.format(
+        (CP.PropsSI('Prandtl', Parametr[par_1][1], inp_1, Parametr[par_2][1], inp_2, Sub[page1][0])))) + " ")
+    chek(f)
+    st.write("""  """)
+
+    f = lambda: st.write(""" w = """ + str('{:.6}'.format((CP.PropsSI('speed_of_sound', Parametr[par_1][1], inp_1,
+                                                                      Parametr[par_2][1], inp_2,
+                                                                      Sub[page1][0])))) + " м/с")
+    chek(f)
+
+    f = lambda: st.write(""" k = """ + str('{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient',
+                                                                      Parametr[par_1][1], inp_1, Parametr[par_2][1],
+                                                                      inp_2, Sub[page1][0])))) + " ")
+    chek(f)
+
+
 # боковое меню
 with st.sidebar:
     page1 = st.selectbox("Выберите вещество", Subst)
@@ -164,134 +324,66 @@ with st.sidebar:
     with tab1:
         st.write(Sub[page1][0])
         st.write("#")
-        test = st.selectbox(
-            "Выберите количество таблиц?",
-            ("Основная", "Test")
-        )
-        st.write("#")
         Vers()
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
-if test == "Основная":
+Parametr = {'p - давление, МПа': ('Введите давление p, МПа', 'P'),
+            't - температура, °C': ('Введите температуру t, °C', 'T'),
+            'h - энтальпия, кДж/кг': ('Ведите энтальпию h, кДж/кг', 'H'),
+            's - энтропия, кДж/(кг*°C)': ('Ведите энтропию s, кДж/(кг*°C)', 'S'),
+            'u - внутренняя энергия, кДж/кг': ('Ведите внутреннюю энергию u, кДж/кг', 'U'),
+            'ρ - плотность, кг/м³': ('Ведите плотность ρ, кг/м³', 'D'),
+            'x - степень сухости, %': ('Ведите степень сухости, %', 'Q')
+            }
+Par = list(Parametr.keys())
 
-    page = st.selectbox("Выберите исходные параметры", ["p-T"])
-    if page == "p-T":
-        p = st.number_input('Введите давление p, МПа', max_value=(Sub[page1][1]) / 10 ** 6)
-        T = st.number_input('Введите температуру T, °C', max_value=(Sub[page1][2]) - 273.15)
-        p = p * 10 ** 6
-        T = T + 273.15
-        col1, col2 = st.columns(2)
-
-    with col1:
-        st.subheader('Свойства')
-        st.write(""" p = """ + str('{:.6}'.format(p / 10 ** 6)) + " МПа")
-        st.write(""" T = """ + str('{:.6}'.format(T - 273.15)) + " С")
-        st.write("""  """)
-
-        f = lambda: st.write(
-            """ h = """ + str('{:.6}'.format((CP.PropsSI('H', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/кг""")
-        chek(f)
-        f = lambda: st.write(
-            """ s = """ + str(
-                '{:.6}'.format((CP.PropsSI('S', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/(кг*°C)""")
-        chek(f)
-        st.write("""  """)
-        f = lambda: st.write(
-            """ v = """ + str('{:.6}'.format(1 / CP.PropsSI('D', 'P', p, 'T', T, Sub[page1][0]))) + """ м³/кг""")
-        chek(f)
-        f = lambda: st.write(
-            """ ρ = """ + str('{:.6}'.format((CP.PropsSI('D', 'P', p, 'T', T, Sub[page1][0])))) + """ кг/м³""")
-        chek(f)
-        f = lambda: st.write(
-            """ u = """ + str('{:.6}'.format((CP.PropsSI('U', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/кг""")
-        chek(f)
-        f = lambda: st.write(
-            """ cp = """ + str(
-                '{:.6}'.format((CP.PropsSI('C', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/(кг*°C)""")
-        chek(f)
-        f = lambda: st.write(
-            """ cv = """ + str(
-                '{:.6}'.format((CP.PropsSI('O', 'P', p, 'T', T, Sub[page1][0])) / 1000)) + """ кДж/(кг*°C)""")
-        chek(f)
-        f = lambda: st.write(
-            """ λ = """ + str(
-                '{:.6}'.format((CP.PropsSI('conductivity', 'P', p, 'T', T, Sub[page1][0])))) + """ Вт/(м*°C)""")
-        chek(f)
-        f = lambda: st.write(
-            """ μ = """ + str('{:.6}'.format(CP.PropsSI('viscosity', 'P', p, 'T', T, Sub[page1][0]))) + """ Па*с""")
-        chek(f)
-        f = lambda: st.write(
-            """ ν = """ + str('{:.6}'.format((CP.PropsSI('viscosity', 'P', p, 'T', T, Sub[page1][0]) / CP.PropsSI('D',
-                                                                                                                  'P',
-                                                                                                                  p,
-                                                                                                                  'T',
-                                                                                                                  T,
-                                                                                                                  Sub[
-                                                                                                                      page1][
-                                                                                                                      0])))) + """ м²/с""")
-        chek(f)
-        f = lambda: st.write(
-            """ Pr = """ + str('{:.6}'.format((CP.PropsSI('Prandtl', 'P', p, 'T', T, Sub[page1][0])))) + """""")
-        chek(f)
-        st.write("""  """)
-        f = lambda: st.write(""" w = """ + str(
-            '{:.6}'.format((CP.PropsSI('speed_of_sound', 'P', p, 'T', T, Sub[page1][0])))) + """ м/с""")
-        chek(f)
-        f = lambda: st.write(""" k = """ + str(
-            '{:.6}'.format((CP.PropsSI('isentropic_expansion_coefficient', 'P', p, 'T', T, Sub[page1][0])))) + """""")
-        chek(f)
-
-        with col2:
-            with st.expander("Показать названия свойств", expanded=True):
-                st.write("""  """)
-                st.write(""" Давление """)
-                st.write(""" Температура """)
-                st.write("""  """)
-                st.write(""" Удельная энтальпия """)
-                st.write(""" Удельная энтропия """)
-                text_1()
-
-if test == "Test":
-    st.write("Тестовая страница")
-
-    Parametr = {'p - давление, МПа': ('Введите давление p, МПа', ' '),
-                't - температура, °C': ('Введите температуру t, °C', ' '),
-                'h - энтальпия, кДж/кг': ('Ведите энтальпию h, кДж/кг', ' '),
-                's - энтропия, кДж/(кг*°C)': ('Ведите энтропию s, кДж/(кг*°C)', ' '),
-                'u - внутренняя энергия, кДж/кг': ('Ведите внутреннюю энергию u, кДж/кг', ' '),
-                'ρ - плотность, кг/м³': ('Ведите плотность ρ, кг/м³', ' '),
-                'x - степень сухости': ('Ведите степень сухости', ' ')
-                }
-    Par = list(Parametr.keys())
-
-    col1, col2 = st.columns(2)
-    with col1:
-        par_1 = st.selectbox("Выберите 1-ый исходный параметр", Par, index=0, key=1)
-        par_2 = st.selectbox("Выберите 2-ой исходный параметр", Par, index=1, key=2)
-    with col2:
-        if par_1 == par_2:
-            st.write("##### Выберите два различных параметра")
-        else:
-            match par_1:
-                case "p - давление, МПа":
-                    inp_1 = st.number_input(Parametr[par_1][0], max_value=(Sub[page1][1]) / 10 ** 6)
-                case "t - температура, °C":
-                    inp_1 = st.number_input(Parametr[par_1][0], max_value=(Sub[page1][2]) - 273.15)
-                case "x - степень сухости":
-                    inp_1 = st.number_input(Parametr[par_1][0], max_value=1, min_value=0)
-                case _:
-                    inp_1 = st.number_input(Parametr[par_1][0])
-
-            match par_2:
-                case "p - давление, МПа":
-                    inp_2 = st.number_input(Parametr[par_2][0], max_value=(Sub[page1][1]) / 10 ** 6)
-                case "t - температура, °C":
-                    inp_2 = st.number_input(Parametr[par_2][0], max_value=(Sub[page1][2]) - 273.15)
-                case "x - степень сухости":
-                    inp_2 = st.number_input(Parametr[par_2][0], max_value=1, min_value=0)
-                case _:
-                    inp_2 = st.number_input(Parametr[par_2][0])
-
-    col1_1, col2_2 = st.columns(2)
+col1, col2 = st.columns(2)
+with col1:
+    par_1 = st.selectbox("Выберите 1-ый исходный параметр", Par, index=0, key=1)
+    par_2 = st.selectbox("Выберите 2-ой исходный параметр", Par, index=1, key=2)
+with col2:
     if par_1 == par_2:
-        st.write("### Выберите два различных параметра")
+        st.write("##### Выберите два различных параметра")
+    else:
+        match par_1:
+            case "p - давление, МПа":
+                inp_1 = st.number_input(Parametr[par_1][0], max_value=(Sub[page1][1]) / 10 ** 6)
+                inp_1 = inp_1 * 10 ** 6
+            case "t - температура, °C":
+                inp_1 = st.number_input(Parametr[par_1][0], max_value=(Sub[page1][2]) - 273.15)
+                inp_1 = inp_1 + 273.15
+            case "x - степень сухости, %":
+                inp_1 = st.number_input(Parametr[par_1][0], max_value=100, min_value=0)
+                inp_1 = inp_1 / 100
+            case "ρ - плотность, кг/м³":
+                inp_1 = st.number_input(Parametr[par_1][0])
+            case _:
+                inp_1 = st.number_input(Parametr[par_1][0])
+                inp_1 = inp_1 * 1000
+
+        match par_2:
+            case "p - давление, МПа":
+                inp_2 = st.number_input(Parametr[par_2][0], max_value=(Sub[page1][1]) / 10 ** 6)
+                int_2 = inp_2 * 10 ** 6
+            case "t - температура, °C":
+                inp_2 = st.number_input(Parametr[par_2][0], max_value=(Sub[page1][2]) - 273.15)
+                inp_2 = inp_2 + 273.15
+            case "x - степень сухости, %":
+                inp_2 = st.number_input(Parametr[par_2][0], max_value=100, min_value=0)
+                inp_2 = inp_2 / 100
+            case "ρ - плотность, кг/м³":
+                inp_2 = st.number_input(Parametr[par_2][0])
+            case _:
+                inp_2 = st.number_input(Parametr[par_2][0])
+                inp_2 = inp_2 * 1000
+
+if par_1 == par_2:
+    st.write("### Выберите два различных параметра")
+
+if par_1 != par_2:
+    col1_1, col2_2 = st.columns(2)
+    with col1_1:
+        Cool(inp_1, inp_2)
+    with col2_2:
+        with st.expander("Названия свойств", expanded=True):
+            text_1()
