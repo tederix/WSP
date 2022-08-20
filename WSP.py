@@ -9,7 +9,7 @@ from PIL import Image
 
 #Версия
 def Vers():
-    Vr = "v1.0.2"
+    Vr = "v2.0.0"
     st.write(Vr)
 
 #настройки конфигурации страницы
