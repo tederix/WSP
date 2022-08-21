@@ -5,7 +5,6 @@ from WSP import Vers
 st.set_page_config(page_title="CoolProp", page_icon="💦")
 
 # вещества
-
 Sub = {'1-Butene / 1-Бутен': ('1-Butene', 50000000.0, 525.0),
        'Acetone / Ацетон': ('Acetone', 700000000.0, 550.0),
        'Air / Воздух': ('Air', 2000000000.0, 2000.0),
