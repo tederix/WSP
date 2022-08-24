@@ -441,6 +441,9 @@ with st.sidebar:
         Vers()
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
+    st.write("#")
+    st.write("### [Бот в telegram](https://t.me/iapwsted_bot)")
+
 if page == "Одна":
 
     page = st.selectbox("Выберите исходные параметры", ["p-T", "p-h", "p-s", "h-s", "p-x", "T-x"], key=1)
