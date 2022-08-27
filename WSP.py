@@ -6,6 +6,7 @@ from streamlit_lottie import st_lottie
 from PIL import Image
 
 
+
 # Версия
 def Vers():
     Vr = "v2.0.1"
@@ -134,6 +135,8 @@ def WSP(key):
         f = lambda: st.write(
             """ r = """ + str('{:.6}'.format(IAPWS95(P=p / k, T=T + 273.15 + kT).Hvap)) + """ кДж/кг""")
         chek(f)
+
+
     if page == "p-h":
         p = st.number_input('Введите давление p, ' + ch, key=key, min_value=0.0)
         h = st.number_input('Введите энтальпию h, кДж/кг', key=key, min_value=0.0)
