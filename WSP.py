@@ -446,6 +446,7 @@ with st.sidebar:
 
     st.write("#")
     st.write("### [Бот в telegram](https://t.me/iapwsted_bot)")
+    st.write("### Бот в ВК доступен в [сообщениях группы](https://vk.com/iapwsted)")
 
 if page == "Одна":
 
