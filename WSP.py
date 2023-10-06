@@ -182,8 +182,8 @@ def WSP():
         f = lambda: st.write(""" r = """ + str('{:.6}'.format(IAPWS95(P=p / k, h=h).Hvap)) + """ кДж/кг""")
         chek(f)
     if page == "p-s":
-        p = st.number_input('Введите давление p, ' + ch, key=key, min_value=0.0)
-        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', key=key, min_value=0.0)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', min_value=0.0)
 
         st.write(""" p = """ + str('{:.6}'.format(p)) + " " + ch)
         f = lambda: st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p / k, s=s).T) - 273.15 - kT)) + " " + chT)
