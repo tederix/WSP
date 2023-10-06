@@ -194,9 +194,9 @@ def Cool(inp_1, inp_2):
     # Энтальпия
     if par_1 == "h - энтальпия, кДж/кг" or par_2 == "h - энтальпия, кДж/кг":
         if par_1 == "h - энтальпия, кДж/кг":
-            st.write(""" h = """ + str('{:.6}'.format(inp_1 / 1000)) + " °C")
+            st.write(""" h = """ + str('{:.6}'.format(inp_1 / 1000)) + " кДж/кг")
         if par_2 == "h - энтальпия, кДж/кг":
-            st.write(""" h = """ + str('{:.6}'.format(inp_2 / 1000)) + " °C")
+            st.write(""" h = """ + str('{:.6}'.format(inp_2 / 1000)) + " кДж/кг")
     else:
         f = lambda: st.write(""" h = """ + str('{:.6}'.format((CP.PropsSI('H', Parametr[par_1][1], inp_1,
                                                                           Parametr[par_2][1], inp_2,
