@@ -363,7 +363,7 @@ with col2:
         match par_2:
             case "p - давление, МПа":
                 inp_2 = st.number_input(Parametr[par_2][0], max_value=(Sub[page1][1]) / 10 ** 6)
-                int_2 = inp_2 * 10 ** 6
+                inp_2 = inp_2 * 10 ** 6
             case "t - температура, °C":
                 inp_2 = st.number_input(Parametr[par_2][0], max_value=(Sub[page1][2]) - 273.15)
                 inp_2 = inp_2 + 273.15
