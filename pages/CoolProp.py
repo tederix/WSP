@@ -338,8 +338,8 @@ Par = list(Parametr.keys())
 
 col1, col2 = st.columns(2)
 with col1:
-    par_1 = st.selectbox("Выберите 1-ый исходный параметр", Par, index=0)
-    par_2 = st.selectbox("Выберите 2-ой исходный параметр", Par, index=1)
+    par_1 = st.selectbox("Выберите 1-ый исходный параметр", Par, index=0, key=1)
+    par_2 = st.selectbox("Выберите 2-ой исходный параметр", Par, index=1, key=2)
 with col2:
     if par_1 == par_2:
         st.write("##### Выберите два различных параметра")
