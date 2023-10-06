@@ -88,11 +88,11 @@ def hdres():
 
 # Использование билиотеки IAPWS для многотабличных страниц
 
-def WSP(key):
-    page = st.selectbox("Выберите исходные параметры", ["p-T", "p-h", "p-s", "h-s", "p-x", "T-x"], key=key)
+def WSP():
+    page = st.selectbox("Выберите исходные параметры", ["p-T", "p-h", "p-s", "h-s", "p-x", "T-x"])
     if page == "p-T":
-        p = st.number_input('Введите давление p, ' + ch, key=key, min_value=0.0)
-        T = st.number_input('Введите температуру T, ' + chT, key=key, min_value=0.0)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        T = st.number_input('Введите температуру T, ' + chT, min_value=0.0)
 
         st.write(""" p = """ + str('{:.6}'.format(p)) + " " + ch)
         st.write(""" T = """ + str('{:.6}'.format(T)) + " " + chT)
@@ -138,8 +138,8 @@ def WSP(key):
 
 
     if page == "p-h":
-        p = st.number_input('Введите давление p, ' + ch, key=key, min_value=0.0)
-        h = st.number_input('Введите энтальпию h, кДж/кг', key=key, min_value=0.0)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        h = st.number_input('Введите энтальпию h, кДж/кг', min_value=0.0)
 
         st.write(""" p = """ + str('{:.6}'.format(p)) + " " + ch)
         f = lambda: st.write(""" T = """ + str('{:.6}'.format((IAPWS97(P=p / k, h=h).T) - 273.15 - kT)) + " " + chT)
@@ -225,8 +225,8 @@ def WSP(key):
         f = lambda: st.write(""" r = """ + str('{:.6}'.format(IAPWS95(P=p / k, s=s).Hvap)) + """ кДж/кг""")
         chek(f)
     if page == "h-s":
-        h = st.number_input('Введите энтальпию h, кДж/кг', key=key, min_value=0.0)
-        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', key=key, min_value=0.0)
+        h = st.number_input('Введите энтальпию h, кДж/кг', min_value=0.0)
+        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', min_value=0.0)
 
         f = lambda: st.write(""" p = """ + str('{:.4}'.format((IAPWS97(h=h, s=s).P) * k)) + " " + ch)
         chek(f)
@@ -266,8 +266,8 @@ def WSP(key):
         f = lambda: st.write(""" r = """ + str('{:.6}'.format(IAPWS95(h=h, s=s).Hvap)) + """ кДж/кг""")
         chek(f)
     if page == "p-x":
-        p = st.number_input('Введите давление p, ' + ch, key=key, min_value=0.0)
-        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0, key=key)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0)
 
         st.write(""" p = """ + str('{:.6}'.format(p)) + ' ' + ch)
         f = lambda: st.write(
@@ -320,8 +320,8 @@ def WSP(key):
         f = lambda: st.write(""" r = """ + str('{:.6}'.format(IAPWS95(P=p / k, x=x / 100).Hvap)) + """ кДж/кг""")
         chek(f)
     if page == "T-x":
-        T = st.number_input('Введите температуру T, ' + chT, key=key, min_value=0.0)
-        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0, key=key)
+        T = st.number_input('Введите температуру T, ' + chT, min_value=0.0)
+        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0)
 
         st.write(""" T = """ + str('{:.6}'.format(T)) + " " + chT)
         f = lambda: st.write(
@@ -447,16 +447,14 @@ with st.sidebar:
     st.write("#")
     st.link_button('Бот в telegram', 'https://t.me/iapwsted_bot')
     st.link_button('Бот в ВК', 'https://vk.com/iapwsted')
-    st.write("### [Бот в telegram](https://t.me/iapwsted_bot)")
-    st.write("### Бот в ВК доступен в [сообщениях группы](https://vk.com/iapwsted)")
 
 if page == "Одна":
 
-    page = st.selectbox("Выберите исходные параметры", ["p-T", "p-h", "p-s", "h-s", "p-x", "T-x"], key=1)
+    page = st.selectbox("Выберите исходные параметры", ["p-T", "p-h", "p-s", "h-s", "p-x", "T-x"])
 
     if page == "p-T":
-        p = st.number_input('Введите давление p, ' + ch, key=1, min_value=0.0)
-        T = st.number_input('Введите температуру T, ' + chT, key=1, min_value=0.0)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        T = st.number_input('Введите температуру T, ' + chT, min_value=0.0)
 
         col1, col2 = st.columns(2)
 
@@ -517,8 +515,8 @@ if page == "Одна":
                 text_1()
 
     if page == "p-h":
-        p = st.number_input('Введите давление p, ' + ch, key=1, min_value=0.0)
-        h = st.number_input('Введите энтальпию h, кДж/кг', key=1, min_value=0.0)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        h = st.number_input('Введите энтальпию h, кДж/кг', min_value=0.0)
 
         col1, col2 = st.columns(2)
         with col1:
@@ -574,8 +572,8 @@ if page == "Одна":
                 text_1()
 
     if page == "p-s":
-        p = st.number_input('Введите давление p, ' + ch, key=1, min_value=0.0)
-        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', key=1, min_value=0.0)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', min_value=0.0)
         col1, col2 = st.columns(2)
 
         with col1:
@@ -630,8 +628,8 @@ if page == "Одна":
                 text_1()
 
     if page == "h-s":
-        h = st.number_input('Введите энтальпию h, кДж/кг', key=1, min_value=0.0)
-        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', key=1, min_value=0.0)
+        h = st.number_input('Введите энтальпию h, кДж/кг', min_value=0.0)
+        s = st.number_input('Введите энтропию s, кДж/(кг*' + chT + ')', min_value=0.0)
 
         col1, col2 = st.columns(2)
 
@@ -686,8 +684,8 @@ if page == "Одна":
                 text_1()
 
     if page == "p-x":
-        p = st.number_input('Введите давление p, ' + ch, key=1, min_value=0.0)
-        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0, key=1)
+        p = st.number_input('Введите давление p, ' + ch, min_value=0.0)
+        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0)
 
         col1, col2 = st.columns(2)
 
@@ -756,8 +754,8 @@ if page == "Одна":
                 st.write(""" Уд. теплота парообразования """)
 
     if page == "T-x":
-        T = st.number_input('Введите температуру T, ' + chT, key=1, min_value=0.0)
-        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0, key=1)
+        T = st.number_input('Введите температуру T, ' + chT, min_value=0.0)
+        x = st.number_input('Введите степень сухости x, %', min_value=0.0, max_value=100.0)
 
         col1, col2 = st.columns(2)
 
@@ -839,9 +837,9 @@ if page == "Две":
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        WSP(key=1)
+        WSP()
     with col2:
-        WSP(key=2)
+        WSP()
     with col3:
         # st.write("""#""")
         # st.write("""#""")
@@ -868,8 +866,8 @@ if page == "Две":
 if page == "Три":
     col1, col2, col3 = st.columns(3)
     with col1:
-        WSP(key=1)
+        WSP()
     with col2:
-        WSP(key=2)
+        WSP()
     with col3:
-        WSP(key=3)
+        WSP()
