@@ -445,6 +445,8 @@ with st.sidebar:
         st.write("Страница проекта на " + "[Github](https://github.com/tederix/WSP)")
 
     st.write("#")
+    st.link_button('Бот в telegram', 'https://t.me/iapwsted_bot')
+    st.link_button('Бот в ВК', 'https://vk.com/iapwsted')
     st.write("### [Бот в telegram](https://t.me/iapwsted_bot)")
     st.write("### Бот в ВК доступен в [сообщениях группы](https://vk.com/iapwsted)")
 
